@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #A855F7;
+  --color-midnight: #050505;
+}
+
+@layer base {
+  :root {
+    --bg-main: #FFFFFF;
+    --bg-surface: rgba(245, 245, 245, 0.7);
+    --bg-sidebar: rgba(255, 255, 255, 0.8);
+    --text-primary: #000000;
+    --text-secondary: #4B5563;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --dot-color: rgba(0, 0, 0, 0.05);
+    --accent-glow: rgba(168, 85, 247, 0.2);
+  }
+
+  .dark {
+    --bg-main: #050505;
+    --bg-surface: rgba(20, 20, 20, 0.7);
+    --bg-sidebar: rgba(20, 20, 20, 0.7);
+    --text-primary: #EDEDED;
+    --text-secondary: #9CA3AF;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --dot-color: rgba(255, 255, 255, 0.05);
+    --accent-glow: rgba(168, 85, 247, 0.4);
+  }
+
+  body {
+    @apply bg-[var(--bg-main)] text-[var(--text-primary)] antialiased selection:bg-accent/30 transition-colors duration-300;
+  }
+}
+
+.glass {
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+}
+
+.dot-grid {
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.purple-glow {
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Hide scrollbar for cleaner UI */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
